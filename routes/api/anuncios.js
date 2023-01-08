@@ -3,9 +3,13 @@
 const express = require('express');
 const createError = require('http-errors');
 const router = express.Router();
-
+const asyncHandler = require('express-async-handler');
 const Anuncio= require('../../models/Anuncios');
 
+router.get('/tags', asyncHandler(async function (req, res) {
+    const distinctTags = await Anuncio.distinct('tags');
+    res.json({ result: distinctTags });
+  }));
 
 // GET 
 

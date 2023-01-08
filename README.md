@@ -123,3 +123,9 @@ http://localhost:3000/api/anuncios/63bac56840731b5db54ab7ea
 
 ![Alt text](public/images/DELETE.png)
 
+
+Listado de tags:
+
+http://localhost:3000/api/anuncios/tags
+
+![Alt text](public/images/GETTags.png)
