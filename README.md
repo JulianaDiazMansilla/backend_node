@@ -129,3 +129,11 @@ Listado de tags:
 http://localhost:3000/api/anuncios/tags
 
 ![Alt text](public/images/GETTags.png)
+
+
+Descargar fotos.
+
+http://localhost:3000/images/anuncios/bici.jpeg
+
+![Alt text](public/images/FOTO.png)
+
