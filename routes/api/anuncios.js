@@ -6,10 +6,7 @@ const router = express.Router();
 const asyncHandler = require('express-async-handler');
 const Anuncio= require('../../models/Anuncios');
 
-router.get('/tags', asyncHandler(async function (req, res) {
-    const distinctTags = await Anuncio.distinct('tags');
-    res.json({ result: distinctTags });
-  }));
+
 
 // GET 
 
@@ -37,7 +34,8 @@ router.get ('/', async (req, res, next) => {
         const filtro = {};
 
         if (nombre) { 
-            filtro.nombre = nombre;
+            //filtro.nombre = nombre;
+            filtro.nombre = new RegExp('^' + req.query.nombre, 'i');
         }
 
         if (precio) { 
@@ -139,6 +137,11 @@ router.delete('/:id', async (req, res, next) => {
     }
     });
 
+// List of tags on http://localhost:3000/api/anuncios/tags
 
+router.get('/tags', asyncHandler(async function (req, res) {
+    const distinctTags = await Anuncio.distinct('tags');
+    res.json({ result: distinctTags });
+    }));
 
 module.exports = router;
